@@ -1,7 +1,7 @@
 {
   "name": "httpserver",
   "version": "1.0.0",
-  "description": "",
+  "description": "An example of how to communicate between the Minecraft mod ComputerCraft and a server",
   "main": "index.js",
   "homepage": "https://github.com/Sv443/ComputerCraftHttpExample",
   "scripts": {
