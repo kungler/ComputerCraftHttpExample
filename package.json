@@ -1,0 +1,23 @@
+{
+  "name": "httpserver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "homepage": "https://github.com/Sv443/ComputerCraftHttpExample",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "lua",
+    "computercraft",
+    "minecraft",
+    "http"
+  ],
+  "author": {
+    "name": "Sv443",
+    "email": "contact@sv443.net",
+    "url": "https://sv443.net/"
+  },
+  "license": "MIT",
+  "dependencies": {}
+}
