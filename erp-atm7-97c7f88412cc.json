@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "erp-atm7",
+  "private_key_id": "97c7f88412ccf831169037c6c8b9432582c40007",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC4cJSqe5fL1NNy\nNmBil4P9aM4DYqfawKNU85LHRrM4rscseHOxJKrUyvr4Pdi/tfq2tNjjERfJ1Umw\nhP0faCPI06G/7G1Sw8iSqw0VOt9rOvUllc53WA5VYw25qW+9SDzjntm0oh/FBpy5\n04Ha3qpUTOyOh+kRUsE/0uxRyG20wFN5EM8z6Ec/h0QgSZp+cC+ZJ+3TXazWrZOf\nB3zCiXJjQ3DiV6znnXiLP4U3sz8VE2ZUXeFVwohlN+IdG463HFZU7ad+COX/q9LX\nOvvbyA2C2eoTOpVoQotSB1RRb6u1ZWVC9kwm7/PA5BuLflTvbZhhQxLjYZ6m1K1E\n2GMooUfRAgMBAAECggEAQhZ8/rV4h94Dwgn/8XPvJI84OnhQQw8Bt3/rmSIZN/dQ\ngPvMIK5N1B/DW831a4ROiMc2a+6FApo9ZFXSyT0sjVpfvACAj8Z9iShncLL+uVKP\n4t7R82uG/0uV8G/pDP7kan9R7OqmzZd38xH5lq5wg/JoVQ4YEk//1NnEOe3CeaBO\nxZC1qRNOJk4nHqOyRUg0bZpFesksMPWi8ni6BjUVyELYKof5aDGsAIJ6Tv9W50if\nldA9Dtt4UxUKAhQvBxNup46mgu8FurMmhwvdV05tTceAue660k7eqOnNM7tlkcJq\nr1Fld1CiwPTk7eXfVYdZPShAoZehCXRmRZyjOhWMzQKBgQD/bUn3yuGxTbuT7t42\n9RJMILDB3lTg5doRLzKpymiai7zILl+arvqhHpeOFz01QCYSTSvIdlIlCN/wfa/g\nm3FYGJqA6aYjLRqvj2MMv07J1uYESXvwcCp4ZWvD11AR4XvMuMDl9hpHuq/Qo4zZ\nIl+vk3WdwYfz3Qkde1IPbCnBvwKBgQC42oS7dg2rU5yOcbq96Qh9RWUu7sJGauzH\nvIx8umnntfFK98DHiH/pM+th2OsZjkpc86EhX/vZXQxUfLgToYXBqsDzLDSIC240\n+LznrK5p1eoq/zj2Qt7tuEO4As+UoEWv2aWfIejNqOm9DApTWh+M8Tztf1a2H/pJ\n2pu9SZ86bwKBgQDbiAwF7BqUcBHjMG9O3s2OHp6s0bEz5nnJQT6TDgNfqPBlQO4s\nnW2N4yQxHKofxXWzTx5tWbx6VilaojvymMcPB35rg+Wl4BNKhruD7j0CXzAsyRe7\n7DukZM79cGZCKAFmT/iC7UVjFwIbGSZqTQ/ecKerIfX+U6CM9TvvQ3CUMwKBgGrO\nBybw/NDizHAZEhasUDVhJSdK2IErQofdTya55nr0yufP4ljna1BoqTWtyZjId/rg\n4VaRSMi8VGV0cj8Vcl0FtdpKzkdUo2aD2VHamiOYb2ZMdLMEzB15+9aT+TAcsmb6\nUBFz3DkHwZVzIXwrdFNRBy0KCCXOsCR/5MAni5KNAoGBALdxy+khOrUp7Bwf27pz\nPHXWPggaQEt7LxC9t0yGk5uWVEiCSCiHwJzVL+jUgIs+iwnrTw7kUm+Oj6ew7JVz\nZFO+ckWvkfHXw/hHoau0HjSCAUsvdLW7dqigJQgSFtP1QmlIvzd5IYZwLBocmydu\nAdsnpgeA34FzYfLOvfSmYN5D\n-----END PRIVATE KEY-----\n",
+  "client_email": "zeet-616@erp-atm7.iam.gserviceaccount.com",
+  "client_id": "107518785184175127011",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/zeet-616%40erp-atm7.iam.gserviceaccount.com"
+}

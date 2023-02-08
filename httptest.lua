@@ -1,5 +1,6 @@
-reqUrl = "https://sv443.net/cc_httptest/" -- Node.js server has to be hosted somewhere, an IP address will not work here
-reqBod = 0 -- numbers will be returned as a factorial
+
+reqUrl = "https://erp-atm7-az9u-main-okovifwtpq-wm.a.run.app/" -- Node.js server has to be hosted somewhere, an IP address will not work here
+reqBod = 5 -- numbers will be returned as a factorial
 -- reqBod = "test" -- strings will be returned encoded as base64
 
 

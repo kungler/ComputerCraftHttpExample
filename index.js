@@ -14,7 +14,7 @@ http.createServer((req, res) => {
             if(isNaN(num))
                 textToSend = Buffer.from(chunk.toString()).toString("base64");
             else
-                textToSend = factorial(num).toString();
+                textToSend = test().toString();
 
 
             res.writeHead(200, {"Content-Type": "text/plain; UTF-8"});
@@ -46,4 +46,11 @@ function factorial(num)
     for(let i = 2; i <= num; i++)
         rval = rval * i;
     return rval;
+}
+
+function test()
+{
+    let a = 1 
+    
+return a 
 }
