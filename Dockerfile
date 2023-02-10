@@ -2,7 +2,9 @@
 FROM node:14
 
 # Définissez le répertoire de travail pour notre application
-VOLUME /app
+WORKDIR /app
+COPY . /app
+RUN cd /app
 
 # Installez les dépendances de votre application
 RUN npm install
