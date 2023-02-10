@@ -2,7 +2,7 @@
 FROM node:14
 
 # Définissez le répertoire de travail pour notre application
-WORKDIR /home/vincentgenty33/
+WORKDIR /app
 
 # Copiez les fichiers de votre application depuis votre répertoire local vers le répertoire de travail de Docker
 COPY . .
