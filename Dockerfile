@@ -2,7 +2,7 @@
 FROM node:14
 
 # Définissez le répertoire de travail pour notre application
-WORKDIR /app
+VOLUME /app
 
 # Copiez les fichiers de votre application depuis votre répertoire local vers le répertoire de travail de Docker
 COPY . .
@@ -14,4 +14,4 @@ RUN npm install
 EXPOSE 1337
 
 # Définissez le script d'entrée pour démarrer votre application
-CMD [ "node", "index.js" ]
+ENTRYPOINT ["node", "index.js"]
