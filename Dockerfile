@@ -13,4 +13,4 @@ RUN npm install
 EXPOSE 1337
 
 # Définissez le script d'entrée pour démarrer votre application
-#ENTRYPOINT ["node", "index.js"]#
+ENTRYPOINT ["node", "index.js"]
