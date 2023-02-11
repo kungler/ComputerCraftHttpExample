@@ -1,9 +1,9 @@
 {
   "name": "httpserver",
   "version": "1.0.0",
-  "description": "An example of how to communicate between the Minecraft mod ComputerCraft and a server",
+  "description": "An ERP for minecraft FTB ATM7 / Big reactor / mekanism / applied",
   "main": "index.js",
-  "homepage": "https://github.com/Sv443/ComputerCraftHttpExample",
+  "homepage": "https://github.com/kungler/erp-atm7-V1",
   "scripts": {
     "test": "node index.js"
   },
@@ -14,9 +14,9 @@
     "http"
   ],
   "author": {
-    "name": "Sv443",
-    "email": "contact@sv443.net",
-    "url": "https://sv443.net/"
+    "name": "kungler",
+    "email": "vincentgenty33@gmail.com",
+    "url": "https://github.com/kungler/"
   },
   "license": "MIT",
   "dependencies": {}
