@@ -16,7 +16,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 
-app.use(express.static('public'));
+app.use(express.static('website'));
 
 app.get("/", function (request, response) {
   response.sendFile(__dirname + '/index.html');
