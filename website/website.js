@@ -14,6 +14,16 @@ const requestHandler = (request, response) => {
   });
 };
 
+fs.readFile('./stylesheet.css', (err, data) => {
+  if (err) {
+    console.error('Error loading style.css');
+  } else {
+    const css = data.toString();
+    response.writeHead(200, {'Content-Type': 'text/css'});
+    response.end(css);
+  }
+});
+
 const server = http.createServer(requestHandler);
 
 server.listen(port, (err) => {
