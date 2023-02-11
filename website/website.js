@@ -3,6 +3,7 @@ const fs = require('fs');
 const port = 8080;
 
 const requestHandler = (request, response) => {
+  
   if (request.url.endsWith('.css')) {
     fs.readFile(`.${request.url}`, (err, data) => {
       if (err) {
