@@ -19,7 +19,7 @@ var bodyParser = require('body-parser');
 app.use(express.static('public'));
 
 app.get("/", function (request, response) {
-  response.sendFile('/index.html');
+  response.sendFile(__dirname + 'index.html');
 });
 
 // parse application/x-www-form-urlencoded
