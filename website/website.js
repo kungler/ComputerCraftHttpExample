@@ -3,7 +3,7 @@ const fs = require('fs');
 const port = 8080;
 
 const requestHandler = (request, response) => {
-  fs.readFile('./index.html', (err, data) => {
+  fs.readFile('./website/index.html', (err, data) => {
     if (err) {
       response.writeHead(500, {'Content-Type': 'text/plain'});
       response.end('Error loading index.html');
