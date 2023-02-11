@@ -9,7 +9,7 @@
 // where your node app starts
 
 // define process env port
-process.env.PORT = 56666;
+process.env.PORT = 8080;
 
 // init project
 var express = require('express');
