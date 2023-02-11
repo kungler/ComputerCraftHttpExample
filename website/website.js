@@ -29,7 +29,7 @@ const requestHandler = (request, response) => {
 
 const server = http.createServer(requestHandler);
 
-server.listen(port,(err) => {
+server.listen(port,"34.125.35.208",(err) => {
   if (err) {
     return console.log('Error starting server: ', err);
   }
