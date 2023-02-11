@@ -11,6 +11,7 @@ RUN npm install
 
 # Définissez l'exposition du port pour notre application
 EXPOSE 1337
+EXPOSE 8080
 
 # Définissez le script d'entrée pour démarrer votre application
 ENTRYPOINT ["node", "index.js"]
