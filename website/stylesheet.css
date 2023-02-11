@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+:root {
+	--background-color: #4ba1193f;
+	--c-gray-800: #1f1f1f;
+	--c-gray-700: #2e2e2e;
+	--c-gray-600: #313131;
+	--meka_cell: #969593;
+	--reactor: #271d1d;
+	--c-gray-300: #bdbbb7;
+	--c-gray-200: #f1f1f1;
+	--c-gray-100: #ffffff;
+
+
+
+    --reactor_text: #d30404;
+	--energy_text: #45ff45;
+	--c-olive-500: #e3ffa8;
+
+	--c-white: var(--c-gray-100);
+
+	--c-text-primary: var(--c-gray-100);
+	--c-text-secondary: var(--c-gray-200);
+	--c-text-tertiary: var(--c-gray-500);
+    --shadow:-1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+}
+/* body */
+body {
+    line-height: 1.5;
+    min-height: 100vh;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    background-color: var(--background-color);
+    color: var(--c-text-primary);
+    display: flex;
+    padding-top: 3vw;
+    padding-bottom: 3vw;
+    justify-content: center;
+}
+    *,
+    *:before,
+    *:after {
+	box-sizing: border-box;
+}
+
+/* head */
+h1 {
+    color: var(--c-olive-500);
+    font-size:90px;
+    text-align:left ;
+    line-height: 0px;
+    margin: 0;
+    position: fixed;
+    text-shadow: var(--shadow);
+
+}
+
+/* class */
+
+.energy{
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    
+    
+}
+
+.reactor{
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    
+    
+}
+
+
+/* mekanism cell */
+
+.mekanism_cell_structure {
+    width: 350px;
+    height: 350px;
+    background-color:var(--meka_cell);
+    display: flex;
+    transform: translate(-50%, -50%);
+    align-items: flex-start;
+    justify-content: center;
+    position: fixed;
+    top: 350px;
+    left: 700px;
+    background-image: url(image.jpg);
+  
+    
+  }
+
+/* reactor */
+
+.reactor_structure{
+    width: 350px;
+    height: 350px;
+    background-color:var(--reactor);
+    display: flex;
+    transform: translate(-50%, -50%);
+    align-items: flex-start;
+    justify-content: center;
+    position: fixed;
+    top: 350px;
+    left: 190px;
+    background-image: url(image.jpg);
+  
+    
+  }
+
+
+
+  /* text centré dessins */
+  p1 {
+    color: var(--energy_text);
+    font-size:20px;
+    margin: 0;
+    text-shadow: var(--shadow);
+    line-height: 30px;
+    position: relative;
+    text-align: center;
+    justify-content: center;
+  }
+
+  p2 {
+    color: var(--reactor_text);
+    font-size:20px;
+    margin: 0;
+    text-shadow: var(--shadow);
+    line-height: 30px;
+    position: relative;
+    text-align: center;
+    justify-content: center;
+  }
+
