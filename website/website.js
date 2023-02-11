@@ -3,6 +3,8 @@ const fs = require('fs');
 const port = 8080;
 
 const requestHandler = (request, response) => {
+
+if (request.url === '/index.html') {
   fs.readFile('./index.html', (err, data) => {
     if (err) {
       response.writeHead(500, {'Content-Type': 'text/plain'});
@@ -12,7 +14,8 @@ const requestHandler = (request, response) => {
       response.end(data);
     }
   });
-};
+
+} else {
 
 fs.readFile('./stylesheet.css', (err, data) => {
   if (err) {
@@ -22,7 +25,9 @@ fs.readFile('./stylesheet.css', (err, data) => {
     response.writeHead(200, {'Content-Type': 'text/css'});
     response.end(css);
   }
-});
+})
+
+}
 
 const server = http.createServer(requestHandler);
 
@@ -32,4 +37,4 @@ server.listen(port, (err) => {
   }
 
   console.log(`Server is listening on ${port}`);
-});
+})};
