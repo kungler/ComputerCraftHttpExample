@@ -1,7 +1,7 @@
 
-reqUrl = "https://34.125.4.241/" -- Node.js server has to be hosted somewhere, an IP address will not work here
+reqUrl = "https://34.125.4.241:8080/" -- Node.js server has to be hosted somewhere, an IP address will not work here
 reqBod = 5 -- numbers will be returned as a factorial
--- reqBod = "test" -- strings will be returned encoded as base64
+-- reqBod = "minecraft" -- strings will be returned encoded as base64
 
 
 local function sendReq(url, body)

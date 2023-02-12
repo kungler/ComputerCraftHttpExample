@@ -14,4 +14,4 @@ EXPOSE 1337
 EXPOSE 8080
 
 # Définissez le script d'entrée pour démarrer votre application
-ENTRYPOINT ["npm", "run","start"]
+ENTRYPOINT ["npm","run","start"]
