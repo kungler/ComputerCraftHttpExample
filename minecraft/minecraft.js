@@ -11,7 +11,7 @@ http.createServer((req, res) => {
             let minecraft_response = chunk.toString();
             res.writeHead(200, {"Content-Type": "text/plain; UTF-8"});
             res.end(minecraft_response);
-            console.log(minecraft_response)
+            console.log(get_minecraft_response(minecraft_response))
         });
     }
     else
