@@ -7,7 +7,6 @@ http.createServer((req, res) => {
     
     if(req.method == "POST")
     {
-        let textToSend = "unknown";
         req.on("data", chunk => {
             let minecraft_response = chunk.toString();
             res.writeHead(200, {"Content-Type": "text/plain; UTF-8"});
@@ -16,9 +15,11 @@ http.createServer((req, res) => {
     }
     else
     {
+        req.on("data", chunk => {
         res.writeHead(200, {"Content-Type": "text/plain; UTF-8"});
         textTodisp = chunk.toString();
         res.end(textTodisp);
+        });
     }
 })
 .listen(PORT, null, (err) => {
