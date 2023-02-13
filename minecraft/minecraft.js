@@ -9,20 +9,16 @@ http.createServer((req, res) => {
     {
         let textToSend = "unknown";
         req.on("data", chunk => {
-            let num = parseInt(chunk.toString());
-            
-        
-            textToSend = get_value();
+            let minecraft_response = chunk.toString();
             res.writeHead(200, {"Content-Type": "text/plain; UTF-8"});
-            res.end(textToSend);
-            var minecraft_response = res.end(textToSend);
+            res.end(minecraft_response);
         });
     }
     else
     {
         res.writeHead(200, {"Content-Type": "text/plain; UTF-8"});
-        textToSend = get_value();
-        res.end(textToSend);
+        textTodisp = chunk.toString();
+        res.end(textTodisp);
     }
 })
 .listen(PORT, null, (err) => {
@@ -37,8 +33,3 @@ http.createServer((req, res) => {
 /**
  * @param {Number} num
  */
-function get_value(num)
-{
-    let value = num
-    return value;
-}
