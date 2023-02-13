@@ -20,7 +20,7 @@ http.createServer((req, res) => {
     else
     {
         res.writeHead(200, {"Content-Type": "text/plain; UTF-8"});
-        res.end(new Date().toString());
+        res.end(minecraft_response.toString());
     }
 })
 .listen(PORT, null, (err) => {

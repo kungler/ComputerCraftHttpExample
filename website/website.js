@@ -54,6 +54,7 @@ var listener = app.listen(process.env.PORT, function () {
 get_minecraft_response(tag){
   
   Data = JSON.parse(minecraft_response);
-  document.write(Data.tag)
+
+return document.write(Data.tag)
   
 }
