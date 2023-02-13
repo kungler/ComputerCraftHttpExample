@@ -8,10 +8,9 @@ http.createServer((req, res) => {
     if(req.method == "POST")
     {
         req.on("data", chunk => {
-            let minecraft_response = chunk.toString();
+            var minecraft_response = chunk.toString();
             res.writeHead(200, {"Content-Type": "text/plain; UTF-8"});
             res.end(minecraft_response);
-            console.log(get_minecraft_response(minecraft_response))
         });
     }
     else
