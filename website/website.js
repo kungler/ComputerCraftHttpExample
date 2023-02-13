@@ -51,10 +51,11 @@ var listener = app.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);
 });
 
-get_minecraft_response(tag){
+get_minecraft_response(tag)
+{
   
-  Data = JSON.parse(minecraft_response);
+  Data = JSON.parse(minecraft_response)
 
-return document.write(Data.tag)
+  return document.write(Data.tag);
   
 }
