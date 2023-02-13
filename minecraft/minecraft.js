@@ -11,6 +11,7 @@ http.createServer((req, res) => {
             var minecraft_response = chunk.toString();
             res.writeHead(200, {"Content-Type": "text/plain; UTF-8"});
             res.end(minecraft_response);
+            console.log(get_minecraft_response("Energy"))
         });
     }
     else
@@ -32,6 +33,15 @@ http.createServer((req, res) => {
 
 
 
-/**
- * @param {Number} num
- */
+function get_minecraft_response(tag)
+{
+  var incorrectJson = minecraft_response;
+  var correctJson = incorrectJson.replace(/([a-zA-Z]+)\s*=\s*/g, '"$1": ');
+  console.log(correctJson)
+  Data = JSON.parse(correctJson)
+  console.log(document.write(Data.tag))
+  console.log(correctJson)
+
+  return document.write(Data.tag);
+  
+}
