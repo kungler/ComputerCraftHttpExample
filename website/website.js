@@ -53,8 +53,9 @@ var listener = app.listen(process.env.PORT, function () {
 
 function get_minecraft_response(tag)
 {
-  
-  Data = JSON.parse(minecraft_response)
+  var incorrectJson = minecraft_response;
+  var correctJson = incorrectJson.replace(/([a-zA-Z]+)\s*=\s*/g, '"$1": ');
+  Data = JSON.parse(correctJson)
 
   return document.write(Data.tag);
   
