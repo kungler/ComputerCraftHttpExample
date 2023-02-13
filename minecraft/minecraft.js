@@ -37,20 +37,10 @@ http.createServer((req, res) => {
 
 
 /**
- * From https://stackoverflow.com/a/3959361/8602926
  * @param {Number} num
  */
-function factorial(num)
+function get_value(num)
 {
-    let rval = 1;
-    for(let i = 2; i <= num; i++)
-        rval = rval * i;
-    return rval;
-}
-
-function test()
-{
-    let a = 1 
-    
-return a 
+    value = num
+    return value;
 }
