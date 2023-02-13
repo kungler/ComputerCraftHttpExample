@@ -50,3 +50,10 @@ console.log(chart)
 var listener = app.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);
 });
+
+get_minecraft_response(tag){
+  
+  Data = JSON.parse(minecraft_response);
+  document.write(Data.tag)
+  
+}

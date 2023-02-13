@@ -10,15 +10,11 @@ http.createServer((req, res) => {
         req.on("data", chunk => {
             let num = parseInt(chunk.toString());
             let textToSend = "unknown";
-
-            if(isNaN(num))
-                textToSend = Buffer.from(chunk.toString()).toString("base64");
-            else
-                textToSend = test().toString();
-
-
+        
+            textToSend = get_value().toString();
             res.writeHead(200, {"Content-Type": "text/plain; UTF-8"});
             res.end(textToSend);
+            var minecraft_response = res.end(textToSend);
         });
     }
     else
@@ -41,6 +37,6 @@ http.createServer((req, res) => {
  */
 function get_value(num)
 {
-    value = num
+    let value = num
     return value;
 }
