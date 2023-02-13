@@ -7,9 +7,10 @@ http.createServer((req, res) => {
     
     if(req.method == "POST")
     {
+        let textToSend = "unknown";
         req.on("data", chunk => {
             let num = parseInt(chunk.toString());
-            let textToSend = "unknown";
+            
         
             textToSend = get_value();
             res.writeHead(200, {"Content-Type": "text/plain; UTF-8"});
@@ -20,7 +21,8 @@ http.createServer((req, res) => {
     else
     {
         res.writeHead(200, {"Content-Type": "text/plain; UTF-8"});
-        res.end(minecraft_response.toString());
+        textToSend = get_value();
+        res.end(textToSend);
     }
 })
 .listen(PORT, null, (err) => {
