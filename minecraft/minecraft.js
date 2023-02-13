@@ -11,7 +11,7 @@ http.createServer((req, res) => {
             let num = parseInt(chunk.toString());
             let textToSend = "unknown";
         
-            textToSend = get_value().toString();
+            textToSend = get_value();
             res.writeHead(200, {"Content-Type": "text/plain; UTF-8"});
             res.end(textToSend);
             var minecraft_response = res.end(textToSend);
