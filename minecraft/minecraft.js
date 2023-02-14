@@ -9,7 +9,7 @@ http.createServer((req, res) => {
     {
         req.on("data", chunk => {
             var minecraft_response = chunk.toString();
-            res.writeHead(200, {"Content-Type": "text/plain; UTF-8"});
+            res.writeHead(200, {"Content-Type": "application/json; UTF-8"});
             res.end(minecraft_response);
             console.log(get_minecraft_response(minecraft_response,"Energy"))
         });
@@ -35,11 +35,10 @@ http.createServer((req, res) => {
 
 function get_minecraft_response(json,tag)
 {
-  console.log(json)
-  console.log(json.split(tag)[0])
-  console.log(json.split(tag)[1])
+
   Data = JSON.parse(json);
+  console.log(Data.tag)
   
-  return Data.toString;
+  return Data.tag;
   
 }
