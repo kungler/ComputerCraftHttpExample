@@ -11,16 +11,7 @@ http.createServer((req, res) => {
             var minecraft_response = chunk.toString();
             res.writeHead(200, {"Content-Type": "application/json; UTF-8"});
             res.end(minecraft_response);
-            
-        });
-    }
-    else
-    {
-        req.on("data", chunk => {
-        res.writeHead(200, {"Content-Type": "text/plain; UTF-8"});
-        textTodisp = chunk.toString();
-        res.end(textTodisp);
-        console.log(textTodisp)
+            console.log(get_minecraft_response(minecraft_response,"Energy"))
         });
     }
 })
@@ -35,10 +26,15 @@ http.createServer((req, res) => {
 
 function get_minecraft_response(json,tag)
 {
+
   
   Data = JSON.parse(json);
-  console.log(Data)
+  let json_list = json.split(",");
+  console.log(json_list);
+  console.log(Data.split(","));
   
+
+
   return Data.tag;
   
 }
