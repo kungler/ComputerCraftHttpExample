@@ -3,20 +3,28 @@
 
   <head>
   <base target="_top">
-  <script src="minecraft.js"></script>
   <link rel="stylesheet" href="stylesheet.css">
 
   </head>
 
   <body>
   <h1>ERP-ATM7</h1>
-
+  <script src="minecraft.js"></script>
+  <script>
+  var Energy = get_minecraft_response(minecraft_response,"Energy")
+  var Max_energy = get_minecraft_response(minecraft_response,"Max_energy")
+  document.getElementById("energy_value").innerHTML = Energy;
+  document.getElementById("max_energy_value").innerHTML = Max_energy;
+  
+  </script>
 
 
   <div class= "energy">
+  <div id="energy_value"></div>
+  <div id="max_energy_value"></div>
   <div class="mekanism_cell_structure">
   <p1>Energy</p1>
-  <script>document.write(get_minecraft_response(minecraft_response,"Energy"))</script>
+  
   </div>
   </div>
 
