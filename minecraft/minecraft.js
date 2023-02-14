@@ -35,12 +35,9 @@ http.createServer((req, res) => {
 
 function get_minecraft_response(json,tag)
 {
-  var incorrectJson = json;
-  var correctJson = incorrectJson.replace(/([a-zA-Z]+)\s*=\s*/g, '"$1": ');
-  console.log(correctJson)
-  Data = JSON.parse(correctJson)
-  console.log(document.write(Data.tag))
-  console.log(correctJson)
+  Data = JSON.parse(json);
+  console.log(document.write(Data.tag));
+  console.log(correctJson);
 
   return document.write(Data.tag);
   

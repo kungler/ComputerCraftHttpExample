@@ -15,6 +15,9 @@ end
 --Json
  
 reqBod = textutils.serialise({get_energy_stored()})
+
+
+
  
 local function sendReq(url, body)
     print("setting up...")
