@@ -27,14 +27,17 @@ http.createServer((req, res) => {
 function get_minecraft_response(json,tag)
 {
 
-  
-  Data = JSON.parse(json);
   let json_list = json.split(",");
-  console.log(json_list);
-  console.log(Data.split(","));
-  
 
+  for (json_entity of json_list){
+        
+    if (json_entity.split('"')[1] === tag){
 
-  return Data.tag;
-  
+        let regex = new RegExp(`"${tag}":(\\d+\\.?\\d*)`)
+        let tag_value = json_entity.match(regex)[1];
+
+        return tag_value;
+    }
+  }
+  return "Incorrect_tag"
 }
