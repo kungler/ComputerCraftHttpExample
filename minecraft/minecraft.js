@@ -11,7 +11,7 @@ http.createServer((req, res) => {
             var minecraft_response = chunk.toString();
             res.writeHead(200, {"Content-Type": "application/json; UTF-8"});
             res.end(minecraft_response);
-            console.log(get_minecraft_response(minecraft_response,"Energy"))
+            
         });
     }
     else
