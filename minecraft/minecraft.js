@@ -36,9 +36,9 @@ http.createServer((req, res) => {
 function get_minecraft_response(json,tag)
 {
   Data = JSON.parse(json);
-  console.log(document.write(Data.tag));
+  console.log(Data.tag);
  
 
-  return document.write(Data.tag);
+  return Data.tag;
   
 }
