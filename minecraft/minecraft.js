@@ -37,7 +37,7 @@ function get_minecraft_response(json,tag)
 {
   Data = JSON.parse(json);
   console.log(document.write(Data.tag));
-  console.log(correctJson);
+ 
 
   return document.write(Data.tag);
   
