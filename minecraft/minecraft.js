@@ -32,10 +32,10 @@ app.use(bodyParser.json());
 app.post('/', (req, res) => {
     console.log(`Incoming ${req.method} from ${req.connection.remoteAddress}`);
     const minecraft_response = req.body;
-    const mr_string = JSON.stringify(minecraft_response)
-    console.log(JSON.parse(mr_string))
-    const Energy_js = get_minecraft_response(minecraft_response,"\"Energy\"");
-    const Max_energy_js = get_minecraft_response(minecraft_response,"\"Max_energy\"");
+    const mr_string = JSON.stringify(minecraft_response);
+    const mr_parse = JSON.parse(mr_string);
+    Energy_js = get_minecraft_response(mr_parse,"Energy");
+    Max_energy_js = get_minecraft_response(mr_parse,"Max_energy");
     eventEmitter.emit('minecraft_var',{Energy_js,Max_energy_js});
     const data = {Energy_js,Max_energy_js};
     res.json(data);
@@ -50,26 +50,10 @@ app.post('/', (req, res) => {
   });
 
 function get_minecraft_response(jsonStr,tag){
-    const regex = new RegExp(`"${tag}":([^,}]+)`);
-    console.log(regex)
-    let match = jsonStr.match(regex);
-    console.log(match)
-    if (!match) {
-      // Si le tag n'est pas trouvé dans le JSON restant, retourner null
-      console.log('wesh')
-      return null;
-    }
-    // Extraire la valeur de la clé vide (clé vide = chaîne JSON restante)
-    const emptyKey = Object.keys(JSON.parse(`{${jsonStr}}`))[0];
-    const remainingJsonStr = `{${jsonStr}}`[emptyKey];
-    console.log(remainingJsonStr)
-    // Appliquer la recherche de chaîne de caractères sur la chaîne JSON restante
-    match = remainingJsonStr.match(regex);
-    if (!match) {
-      // Si le tag n'est pas trouvé dans la chaîne JSON restante, retourner null
-      return null;
-    }
-    return match[1].trim();
+    const regex = new RegExp(`"${tag}":\\s*([^,}\\s]*)`, 'i');
+    const match = jsonString.match(regex);
+    return match ? match[1] : null;
+     
   }
   
   
