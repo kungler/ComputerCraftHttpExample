@@ -32,7 +32,9 @@ app.use(bodyParser.json());
 app.post('/', (req, res) => {
     console.log(`Incoming ${req.method} from ${req.connection.remoteAddress}`);
     const minecraft_response = req.body;
+    console.log(minecraft_response)
     const mr_string = JSON.stringify(minecraft_response);
+    console.log(mr_string)
     const mr_parse = JSON.parse(mr_string);
     Energy_js = get_minecraft_response(mr_parse,"Energy");
     Max_energy_js = get_minecraft_response(mr_parse,"Max_energy");
