@@ -21,6 +21,7 @@ var bodyParser = require('body-parser');
 const EventEmitter = require('events');
 const eventEmitter = new EventEmitter();
 const minecraft_port = 8080;
+const path = require('path');
 
 app.get("/", function (request, response) {
   response.sendFile(__dirname + '/index.html');
@@ -38,9 +39,10 @@ eventEmitter.on('minecraft_var', (data) => {
 
 app.use(express.static('website'));
 
-app.get("/home/vincentgenty33/erp-atm7-V1/minecraft/minecraft.js", function (request, response) {
+app.get(path.join(__dirname, 'minecraft', 'minecraft.js'), function (request, response) {
   const data = {Energy_js,Max_energy_js};
   response.json(data);
+}
 
 http.listen(port, () => {
   console.log(`Serveur en écoute sur le port ${port}.`);
@@ -58,14 +60,14 @@ http.listen(port, () => {
     setInterval(() => {
       axios.get('http://localhost:1337/minecraft_variables')
         .then(response => {
-          variable1 = response.data.Energy_js;
-          variable2 = response.data.Max_energy_js;
+          Energy_js = response.data.Energy_js;
+          Max_energy_js = response.data.Max_energy_js;
         })
         .catch(error => {
           console.error(error);
         });
     }, 5000);
-  }); }, 5000);
+  }));
 
 
 
