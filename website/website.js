@@ -26,7 +26,6 @@ var minecraft_port = 1337
 
 app.get("/", function (request, response) {
   response.sendFile(__dirname + '/index.html');
-  response.sendFile('/home/vincentgenty33/erp-atm7-V1/minecraft/minecraft.js')
 });
 
 // listen for requests :)
