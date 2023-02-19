@@ -47,35 +47,24 @@ app.post('/', (req, res) => {
     console.log(`Server is listening on port ${PORT}...`);
   });
 
-
-function get_minecraft_response(json,tag)
-{
-
-  let json_list = toString(json).split(",");
-
-  for (json_entity of json_list){
-        
-    if (json_entity.split('"')[1] === tag){
-
-        let regex = new RegExp(`"${tag}":(\\d+\\.?\\d*)`)
-        let tag_value = json_entity.match(regex)[1];
-        console.log(tag_value)
-        return tag_value;
-    }
-  }
-  return "Incorrect_tag"
-}
-
 function get_minecraft_response(json,tag){
 
-const jsonString = Object.keys(json)[0]; 
-const startIndex = jsonString.indexOf(tag) + (tag + '":').length; 
-const endIndex = jsonString.indexOf(',', startIndex); 
-const string = jsonString.substring(startIndex, endIndex); 
-    
-    
-console.log(tag  + ' : ' + string); 
-return string;
+    const jsonString = Object.keys(json)[0]; // récupérer la chaîne de caractères JSON
+    const objString = jsonString.substring(1, jsonString.length - 1); // enlever les guillemets
+    const objProperties = objString.split(',');
+  
+    const values = {};
+  
+    for (let i = 0; i < objProperties.length; i++) {
+      const keyValue = objProperties[i].split(':');
+      values[keyValue[0]] = keyValue[1];
+    }
+  
+    var value = parseFloat(values['"\"' + tag + '\""']);
 
-}
+    return value
+  }
+
+
+
 
