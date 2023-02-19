@@ -18,6 +18,7 @@ const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 const axios = require('axios');
 var bodyParser = require('body-parser');
+const eventEmitter = new EventEmitter();
 const minecraft_port = 8080;
 
 app.get("/", function (request, response) {
