@@ -45,19 +45,41 @@ http.createServer((req, res) => {
             console.log(Max_energy_js);
             eventEmitter.emit('minecraft_var',{Energy_js,Max_energy_js});
              const data = {Energy_js,Max_energy_js};
-            response.json(data);
+            res.json(data);
 
 
 
         });
     }else{
-        console.log(Energy_js);
-        console.log(Max_energy_js);
         app.get('/home/vincentgenty33/erp-atm7-V1/minecraft/minecraft.js', function (request, response) {
             const data = {Energy_js,Max_energy_js};
             response.json(data);
           });
         
+        // Récupérer les variables en utilisant Axios
+        axios.get('http://34.163.212.35:1337' + '/home/vincentgenty33/erp-atm7-V1/minecraft/minecraft.js')
+            .then(response => {
+            Energy_js = response.data.Energy_js;
+            Max_energy_js = response.data.Max_energy_js;
+            })
+            .catch(error => {
+            console.error(error);
+            });
+        
+            setInterval(() => {
+            axios.get('http://34.163.212.35:1337' + '/home/vincentgenty33/erp-atm7-V1/minecraft/minecraft.js')
+                .then(response => {
+
+                Energy_js = response.data.Energy_js;
+                Max_energy_js = response.data.Max_energy_js;
+                
+                })
+                .catch(error => {
+                console.error(error);
+                });
+            }, 5000);
+
+    
     }
 
 
@@ -65,8 +87,14 @@ http.createServer((req, res) => {
     if(err)
         console.error(`Error: ${err}`);
     else
-         console.log(`Serveur en écoute sur le port ${minecraft_port}.`);
-    
+        console.log("\n\nServer is listening...");
+        
+        console.log(`Serveur en écoute sur le port ${minecraft_port}.`);
+        app.get('/home/vincentgenty33/erp-atm7-V1/minecraft/minecraft.js', function (request, response) {
+            const data = {Energy_js,Max_energy_js};
+            response.json(data);
+          });
+        
         // Récupérer les variables en utilisant Axios
         axios.get('http://34.163.212.35:1337' + '/home/vincentgenty33/erp-atm7-V1/minecraft/minecraft.js')
             .then(response => {
