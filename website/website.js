@@ -42,7 +42,7 @@ app.use(express.static('website'));
 app.get(path.join(__dirname, 'minecraft', 'minecraft.js'), function (request, response) {
   const data = {Energy_js,Max_energy_js};
   response.json(data);
-}
+});
 
 http.listen(port, () => {
   console.log(`Serveur en écoute sur le port ${port}.`);
@@ -67,7 +67,7 @@ http.listen(port, () => {
           console.error(error);
         });
     }, 5000);
-  }));
+  });
 
 
 
