@@ -22,7 +22,7 @@ var bodyParser = require('body-parser');
 const EventEmitter = require('events');
 const eventEmitter = new EventEmitter();
 const path = require('path');
-var minecraft_API_port = 1337
+var minecraft_port = 1337
 
 app.get("/", function (request, response) {
   response.sendFile(__dirname + '/index.html');
