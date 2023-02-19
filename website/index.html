@@ -6,15 +6,39 @@
   <link rel="stylesheet" href="stylesheet.css">
   
   <script src="minecraft/minecraft.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
-  document.getElementById("energy_value").innerHTML = Energy_js;
-  document.getElementById("max_energy_value").innerHTML = Max_energy_js;
+    $(document).ready(() => {
+      setInterval(() => {
+        $.ajax({
+          url: '/minecraft_variables',
+          type: 'GET',
+          dataType: 'json',
+          success: (data) => {
+            $('#Max_energy_js').text(data.Max_energy_js);
+            $('#Energy_js').text(data.Energy_js);
+          },
+          error: (xhr, status, error) => {
+            console.error(error);
+          }
+        });
+      }, 5000);
+    });
+    
+</script>
 
-  </script>
+
 
   </head>
 
   <body>
+
+<div>
+<h2>Variables:</h2>
+<p>Max_energy_js: <span id="Max_energy_js"></span></p>
+<p>Energy_js: <span id="Energy_js"></span></p>
+</div>
+    
   <h1>ERP-ATM7</h1>
  
 
