@@ -28,7 +28,18 @@ app.get("/", function (request, response) {
   response.sendFile(__dirname + '/index.html');
 });
 
+// listen for requests :)
+var listener = app.listen(process.env.PORT, function () {
+  console.log('Your app is listening on port ' + listener.address().port);
+
+});
+
+
+//API_minecraft
+
+
 //variables à récuperer
+
 let Energy_js;
 let Max_energy_js;
 
@@ -49,7 +60,7 @@ http.listen(minecraft_port, () => {
   console.log(`Serveur en écoute sur le port ${minecraft_port}.`);
 
   // Récupérer les variables en utilisant Axios
-  axios.get('http://localhost:1337/minecraft_variables')
+  axios.get('http://34.163.212.35:1337/minecraft_variables')
     .then(response => {
       Energy_js = response.data.Energy_js;
       Max_energy_js = response.data.Max_energy_js;
@@ -59,7 +70,7 @@ http.listen(minecraft_port, () => {
     });
 
     setInterval(() => {
-      axios.get('http://localhost:1337/minecraft_variables')
+      axios.get('http://34.163.212.35:1337/minecraft_variables')
         .then(response => {
           Energy_js = response.data.Energy_js;
           Max_energy_js = response.data.Max_energy_js;
@@ -72,35 +83,6 @@ http.listen(minecraft_port, () => {
 
 
 
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
-
-// parse application/json
-app.use(bodyParser.json())
-
-// create application/json parser
-var jsonParser = bodyParser.json()
-
-// create application/x-www-form-urlencoded parser
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
-
-// POST method route
-app.post('/', urlencodedParser, function (req, res) {
-  if (!req.body) return res.sendStatus(400)
-  let chart = {
-    id:req.body.id,
-    firstname:req.body.firstname,
-}
-console.log(chart)
-
-  res.send('welcome, ' + req.body.name)
-})
-
-// listen for requests :)
-var listener = app.listen(process.env.PORT, function () {
-  console.log('Your app is listening on port ' + listener.address().port);
-
-});
 
 
 
