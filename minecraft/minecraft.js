@@ -61,7 +61,7 @@ function get_minecraft_response(json,tag){
     }
   
     var value = parseFloat(values['"\"' + tag + '\""']);
-
+    console.log(value)
     return value
   }
 
