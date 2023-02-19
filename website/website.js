@@ -20,7 +20,6 @@ const axios = require('axios');
 var bodyParser = require('body-parser');
 const EventEmitter = require('events');
 const eventEmitter = new EventEmitter();
-const minecraft_port = 8080;
 const path = require('path');
 
 app.get("/", function (request, response) {
@@ -44,8 +43,8 @@ app.get(path.join(__dirname, 'minecraft', 'minecraft.js'), function (request, re
   response.json(data);
 });
 
-http.listen(port, () => {
-  console.log(`Serveur en écoute sur le port ${port}.`);
+http.listen(process.env.PORT, () => {
+  console.log(`Serveur en écoute sur le port ${process.env.PORT}.`);
 
   // Récupérer les variables en utilisant Axios
   axios.get('http://localhost:1337/minecraft_variables')
