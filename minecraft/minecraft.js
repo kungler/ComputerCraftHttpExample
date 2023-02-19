@@ -49,21 +49,18 @@ app.post('/', (req, res) => {
 
 function get_minecraft_response(json,tag){
 
-    const jsonString = Object.keys(json)[0]; // récupérer la chaîne de caractères JSON
-    const objString = jsonString.substring(1, jsonString.length - 1); // enlever les guillemets
-    const objProperties = objString.split(',');
-  
-    const values = {};
-  
-    for (let i = 0; i < objProperties.length; i++) {
-      const keyValue = objProperties[i].split(':');
-      values[keyValue[0]] = keyValue[1];
+    let jsonString = JSON.stringify(json);
+    let regex = new RegExp(`"${tag}":([^,]+)`);
+    let match = jsonString.match(regex);
+    if (match) {
+      console.log(match[1].trim())
+      return match[1].trim();
+      
+    } else {
+      return null;
     }
-  
-    var value = parseFloat(values['"\"' + tag + '\""']);
-    console.log(value)
-    return value
   }
+  
 
 
 
