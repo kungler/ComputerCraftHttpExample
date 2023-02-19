@@ -49,18 +49,25 @@ app.post('/', (req, res) => {
   });
 
 function get_minecraft_response(jsonObj,tag){
-    console.log(jsonObj)
-    let regex = new RegExp(`"${tag}":("[^"]*"|\\d+(?:\\.\\d+)?)`);;
-    let match = jsonObj.match(regex);
-
-    if (match) {
-      console.log(match[1])
-      return match[1];
-      
-    } else {
+    const regex = new RegExp(`"${tag}":([^,}]+)`);
+    let match = jsonStr.match(regex);
+    if (!match) {
+      // Si le tag n'est pas trouvé dans le JSON restant, retourner null
       return null;
     }
+    // Extraire la valeur de la clé vide (clé vide = chaîne JSON restante)
+    const emptyKey = Object.keys(JSON.parse(`{${jsonStr}}`))[0];
+    const remainingJsonStr = `{${jsonStr}}`[emptyKey];
+    console.log(remainingJsonStr)
+    // Appliquer la recherche de chaîne de caractères sur la chaîne JSON restante
+    match = remainingJsonStr.match(regex);
+    if (!match) {
+      // Si le tag n'est pas trouvé dans la chaîne JSON restante, retourner null
+      return null;
+    }
+    return match[1].trim();
   }
+  
   
 
 
