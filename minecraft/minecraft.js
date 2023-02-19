@@ -48,7 +48,7 @@ app.post('/', (req, res) => {
     console.log(`Server is listening on port ${PORT}...`);
   });
 
-function get_minecraft_response(jsonObj,tag){
+function get_minecraft_response(jsonStr,tag){
     const regex = new RegExp(`"${tag}":([^,}]+)`);
     let match = jsonStr.match(regex);
     if (!match) {
