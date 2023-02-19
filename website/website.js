@@ -38,7 +38,7 @@ eventEmitter.on('minecraft_var', (data) => {
 
 app.use(express.static('website'));
 
-app.get("/minecraft_variables", function (request, response) {
+app.get("minecraft/minecraft.js", function (request, response) {
   const data = {Energy_js,Max_energy_js};
   response.json(data);
 
