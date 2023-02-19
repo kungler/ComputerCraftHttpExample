@@ -52,7 +52,7 @@ app.post('/', (req, res) => {
   });
 
 function get_minecraft_response(jsonObj,tag){
-    console.log(jsonStr)
+    console.log(jsonObj)
     let tagObj = JSON.parse(Object.keys(jsonObj)[0]);
     console.log(tagObj)
     let tagValue = tagObj[tag];
