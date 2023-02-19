@@ -1,23 +1,28 @@
-reqUrl = "http://34.155.134.81:1337/" -- Node.js server has to be hosted somewhere, an IP address will not work here
+reqUrl = "http://34.163.212.35:1337/" -- Node.js server has to be hosted somewhere, an IP address will not work here
  
 --Energy
  
-mekanism_cell_0 = peripheral.wrap("inductionPort_0")
+mc_1 = peripheral.wrap("inductionPort_1")
  
-local function get_energy_stored()
- 
-    Energy = mekanism_cell_0.getEnergy()
+function get_energy(meka_cell)
+    Energy = meka_cell.getEnergy()
     
     return Energy
+end
+ 
+function get_max_energy(meka_cell)
+    max_energy = meka_cell.getMaxEnergy()
+    
+    return max_energy
     
 end
  
---Json
+    
  
-reqBod = textutils.serialise({get_energy_stored()})
-
-
-
+ 
+--json
+ 
+reqBod = textutils.serialiseJSON({Energy = get_energy(mc_1),Max_energy = get_max_energy(mc_1) })
  
 local function sendReq(url, body)
     print("setting up...")

@@ -35,51 +35,10 @@ var listener = app.listen(process.env.PORT, function () {
 });
 
 
-//API_minecraft
 
 
-//variables à récuperer
-
-let Energy_js;
-let Max_energy_js;
-
-eventEmitter.on('minecraft_var', (data) => {
-  Energy_js = data.Energy_js;
-  Max_energy_js = data.Max_energy_js;
-});
 
 
-app.use(express.static('website'));
-
-app.get('/home/vincentgenty33/erp-atm7-V1/minecraft/minecraft.js', function (request, response) {
-  const data = {Energy_js,Max_energy_js};
-  response.json(data);
-});
-
-http.listen(minecraft_port, () => {
-  console.log(`Serveur en écoute sur le port ${minecraft_port}.`);
-
-  // Récupérer les variables en utilisant Axios
-  axios.get('http://34.163.212.35:1337' + '/home/vincentgenty33/erp-atm7-V1/minecraft/minecraft.js')
-    .then(response => {
-      Energy_js = response.data.Energy_js;
-      Max_energy_js = response.data.Max_energy_js;
-    })
-    .catch(error => {
-      console.error(error);
-    });
-
-    setInterval(() => {
-      axios.get('http://34.163.212.35:1337' + '/home/vincentgenty33/erp-atm7-V1/minecraft/minecraft.js')
-        .then(response => {
-          Energy_js = response.data.Energy_js;
-          Max_energy_js = response.data.Max_energy_js;
-        })
-        .catch(error => {
-          console.error(error);
-        });
-    }, 5000);
-  });
 
 
 
