@@ -34,8 +34,6 @@ app.post('/', (req, res) => {
     const minecraft_response = req.body;
     const Energy_js = get_minecraft_response(minecraft_response,"Energy");
     const Max_energy_js = get_minecraft_response(minecraft_response,"Max_energy");
-    console.log(Energy_js);
-    console.log(Max_energy_js);
     eventEmitter.emit('minecraft_var',{Energy_js,Max_energy_js});
     const data = {Energy_js,Max_energy_js};
     res.json(data);
@@ -54,7 +52,6 @@ function get_minecraft_response(json,tag)
 {
   console.log(json)
   let json_list = toString(json).split(",");
-  console.log(json_list)
 
   for (json_entity of json_list){
         
