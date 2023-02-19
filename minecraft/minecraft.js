@@ -3,8 +3,10 @@ const PORT = 1337;
 const http = require("http");
 var express = require('express');
 var app = express();
-const server = require('http').createServer(app);
-const io = require('socket.io')(http);
+const server = app.listen(PORT, () => {
+    console.log(`Server is listening on port ${PORT}...`);
+});
+const io = require('socket.io')(server);
 const axios = require('axios');
 var bodyParser = require('body-parser');
 const EventEmitter = require('events');
@@ -45,9 +47,7 @@ app.post('/', (req, res) => {
     socket.emit('minecraft_var', {Energy_js, Max_energy_js});
   });
   
-  app.listen(PORT, () => {
-    console.log(`Server is listening on port ${PORT}...`);
-  });
+
 
 function get_minecraft_response(jsonObj,tag){
     let tagObj = JSON.parse(Object.keys(jsonObj)[0]);
