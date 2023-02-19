@@ -33,7 +33,7 @@ app.post('/', (req, res) => {
     console.log(`Incoming ${req.method} from ${req.connection.remoteAddress}`);
     const minecraft_response = req.body;
     const mr_string = JSON.stringify(minecraft_response)
-    console.log(mr_string)
+    console.log(JSON.parse(mr_string))
     const Energy_js = get_minecraft_response(minecraft_response,"\"Energy\"");
     const Max_energy_js = get_minecraft_response(minecraft_response,"\"Max_energy\"");
     eventEmitter.emit('minecraft_var',{Energy_js,Max_energy_js});
