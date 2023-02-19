@@ -50,6 +50,7 @@ app.post('/', (req, res) => {
   });
 
 function get_minecraft_response(jsonStr,tag){
+    console.log(jsonStr)
     const regex = new RegExp(`"${tag}":\\s*([^,}\\s]*)`, 'i');
     console.log(regex)
     const match = jsonStr.match(regex);
