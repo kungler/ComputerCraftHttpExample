@@ -73,8 +73,12 @@ http.createServer((req, res) => {
             setInterval(() => {
             axios.get('http://34.163.212.35:1337' + '/home/vincentgenty33/erp-atm7-V1/minecraft/minecraft.js')
                 .then(response => {
+                console.log(Energy_js);
+                console.log(Max_energy_js);
                 Energy_js = response.data.Energy_js;
                 Max_energy_js = response.data.Max_energy_js;
+                console.log(Energy_js);
+                console.log(Max_energy_js);
                 })
                 .catch(error => {
                 console.error(error);
