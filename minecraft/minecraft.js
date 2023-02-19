@@ -26,13 +26,6 @@ http.createServer((req, res) => {
         });
     }
 })
-.listen(PORT, null, (err) => {
-    if(err)
-        console.error(`Error: ${err}`);
-    else
-        console.log("\n\nServer is listening...");
-});
-
 
 
 function get_minecraft_response(json,tag)
