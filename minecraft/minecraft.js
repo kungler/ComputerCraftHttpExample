@@ -52,7 +52,7 @@ function get_minecraft_response(json,tag)
 {
   console.log(typeof json)
   console.log(json);
-  console.log(JSON.parse(json.toString()).Energy);
+  console.log(JSON.parse(JSON.stringify(json)).Energy);
   
   let json_list = toString(json).split(",");
 
