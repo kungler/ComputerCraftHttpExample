@@ -17,6 +17,7 @@
           success: (data) => {
             $('#Max_energy_js').text(data.Max_energy_js);
             $('#Energy_js').text(data.Energy_js);
+            $('#Transfer_cell').text(data.Transfer_cell);
           },
           error: (xhr, status, error) => {
             console.error(error);
@@ -42,6 +43,7 @@
     socket.on('minecraft_var', (data) => {
       document.getElementById('energy').textContent = data.Energy_js;
       document.getElementById('max-energy').textContent = data.Max_energy_js;
+      document.getElementById('Transfer_cell').textContent = data.Transfer_cell;
     });
   </script>
 
@@ -49,6 +51,7 @@
 <h2>Variables:</h2>
 <p>Max_energy_js: <span id="max-energy"></span></p>
 <p>Energy_js: <span id="energy"></span></p>
+<p>Transfer_cell: <span id="Transfer_cell"></span></p>
 </div>
     
   <h1>ERP-ATM7</h1>

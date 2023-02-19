@@ -38,13 +38,14 @@ app.post('/', (req, res) => {
     const mr_parse = JSON.parse(mr_string);
     Energy_js = get_minecraft_response(mr_parse,"Energy");
     Max_energy_js = get_minecraft_response(mr_parse,"Max_energy");
-    eventEmitter.emit('minecraft_var',{Energy_js,Max_energy_js});
-    const data = {Energy_js,Max_energy_js};
+    Transfer_cell = get_minecraft_response(mr_parse,"Transfer_cell");
+    eventEmitter.emit('minecraft_var',{Energy_js,Max_energy_js,Transfer_cell});
+    const data = {Energy_js,Max_energy_js,Transfer_cell};
     res.json(data);
   });
   
   io.on('connection', (socket) => {
-    socket.emit('minecraft_var', {Energy_js, Max_energy_js});
+    socket.emit('minecraft_var', {Energy_js, Max_energy_js,Transfer_cell});
   });
   
 
