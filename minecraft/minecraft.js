@@ -50,8 +50,7 @@ app.post('/', (req, res) => {
 
 function get_minecraft_response(json,tag)
 {
-    console.log(json)
-  
+
   let json_list = toString(json).split(",");
 
   for (json_entity of json_list){
@@ -65,5 +64,18 @@ function get_minecraft_response(json,tag)
     }
   }
   return "Incorrect_tag"
+}
+
+function get_minecraft_response(json,tag){
+
+const jsonString = Object.keys(json)[0]; 
+const startIndex = jsonString.indexOf(tag) + (tag + '":').length; 
+const endIndex = jsonString.indexOf(',', startIndex); 
+const string = jsonString.substring(startIndex, endIndex); 
+    
+    
+console.log(tag  + ' : ' + string); 
+return string;
+
 }
 
