@@ -52,10 +52,9 @@ http.createServer((req, res) => {
     }else{
         console.log(Energy_js);
         console.log(Max_energy_js);
-
-
     }
-    ]
+
+    
 }).listen(PORT, null, (err) => {
     if(err)
         console.error(`Error: ${err}`);
