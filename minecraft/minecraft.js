@@ -51,7 +51,7 @@ app.post('/', (req, res) => {
 function get_minecraft_response(json,tag)
 {
   console.log(json);
-  console.log(JSON.parse(json).Energy);
+  console.log(JSON.parse(json.toString()).Energy);
   
   let json_list = toString(json).split(",");
 
