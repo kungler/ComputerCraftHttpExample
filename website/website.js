@@ -38,7 +38,7 @@ eventEmitter.on('minecraft_var', (data) => {
 
 app.use(express.static('website'));
 
-app.get("minecraft/minecraft.js", function (request, response) {
+app.get("/home/vincentgenty33/erp-atm7-V1/minecraft/minecraft.js", function (request, response) {
   const data = {Energy_js,Max_energy_js};
   response.json(data);
 
