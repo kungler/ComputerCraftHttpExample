@@ -26,10 +26,7 @@ eventEmitter.on('minecraft_var', (data) => {
 
 app.use(express.static('website'));
 
-app.get('/home/vincentgenty33/erp-atm7-V1/minecraft/minecraft.js', function (request, response) {
-  const data = {Energy_js,Max_energy_js};
-  response.json(data);
-});
+
 
 
 http.createServer((req, res) => {
@@ -58,6 +55,10 @@ http.createServer((req, res) => {
         console.log("\n\nServer is listening...");
         
         console.log(`Serveur en écoute sur le port ${minecraft_port}.`);
+        app.get('/home/vincentgenty33/erp-atm7-V1/minecraft/minecraft.js', function (request, response) {
+            const data = {Energy_js,Max_energy_js};
+            response.json(data);
+          });
         
         // Récupérer les variables en utilisant Axios
         axios.get('http://34.163.212.35:1337' + '/home/vincentgenty33/erp-atm7-V1/minecraft/minecraft.js')
