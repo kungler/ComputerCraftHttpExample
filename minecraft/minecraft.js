@@ -1,9 +1,9 @@
 const PORT = 1337;
 
 const http = require("http");
-
 var express = require('express');
 var app = express();
+const server = require('http').createServer(app);
 const io = require('socket.io')(http);
 const axios = require('axios');
 var bodyParser = require('body-parser');
@@ -25,100 +25,29 @@ eventEmitter.on('minecraft_var', (data) => {
 
 
 app.use(express.static('website'));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 
-
-
-http.createServer((req, res) => {
+app.post('/', (req, res) => {
     console.log(`Incoming ${req.method} from ${req.connection.remoteAddress}`);
-    
-    if(req.method == "POST")
-    {
-        req.on("data", chunk => {
-            var minecraft_response = chunk.toString();
-            res.writeHead(200, {"Content-Type": "application/json; UTF-8"});
-            res.end(minecraft_response);
-
-            var Energy_js = get_minecraft_response(minecraft_response,"Energy");
-            var Max_energy_js = get_minecraft_response(minecraft_response,"Max_energy");
-            console.log(Energy_js);
-            console.log(Max_energy_js);
-            eventEmitter.emit('minecraft_var',{Energy_js,Max_energy_js});
-             const data = {Energy_js,Max_energy_js};
-            res.json(data);
-
-
-
-        });
-    }else{
-        app.get('/home/vincentgenty33/erp-atm7-V1/minecraft/minecraft.js', function (request, response) {
-            const data = {Energy_js,Max_energy_js};
-            response.json(data);
-          });
-        
-        // Récupérer les variables en utilisant Axios
-        axios.get('http://34.163.212.35:1337' + '/home/vincentgenty33/erp-atm7-V1/minecraft/minecraft.js')
-            .then(response => {
-            Energy_js = response.data.Energy_js;
-            Max_energy_js = response.data.Max_energy_js;
-            })
-            .catch(error => {
-            console.error(error);
-            });
-        
-            setInterval(() => {
-            axios.get('http://34.163.212.35:1337' + '/home/vincentgenty33/erp-atm7-V1/minecraft/minecraft.js')
-                .then(response => {
-
-                Energy_js = response.data.Energy_js;
-                Max_energy_js = response.data.Max_energy_js;
-                
-                })
-                .catch(error => {
-                console.error(error);
-                });
-            }, 5000);
-
-    
-    }
-
-
-}).listen(PORT, null, (err) => {
-    if(err)
-        console.error(`Error: ${err}`);
-    else
-        console.log("\n\nServer is listening...");
-        
-        console.log(`Serveur en écoute sur le port ${minecraft_port}.`);
-        app.get('/home/vincentgenty33/erp-atm7-V1/minecraft/minecraft.js', function (request, response) {
-            const data = {Energy_js,Max_energy_js};
-            response.json(data);
-          });
-        
-        // Récupérer les variables en utilisant Axios
-        axios.get('http://34.163.212.35:1337' + '/home/vincentgenty33/erp-atm7-V1/minecraft/minecraft.js')
-            .then(response => {
-            Energy_js = response.data.Energy_js;
-            Max_energy_js = response.data.Max_energy_js;
-            })
-            .catch(error => {
-            console.error(error);
-            });
-        
-            setInterval(() => {
-            axios.get('http://34.163.212.35:1337' + '/home/vincentgenty33/erp-atm7-V1/minecraft/minecraft.js')
-                .then(response => {
-
-                Energy_js = response.data.Energy_js;
-                Max_energy_js = response.data.Max_energy_js;
-                
-                })
-                .catch(error => {
-                console.error(error);
-                });
-            }, 5000);
-        });
-
+    const minecraft_response = req.body;
+    const Energy_js = get_minecraft_response(minecraft_response,"Energy");
+    const Max_energy_js = get_minecraft_response(minecraft_response,"Max_energy");
+    console.log(Energy_js);
+    console.log(Max_energy_js);
+    eventEmitter.emit('minecraft_var',{Energy_js,Max_energy_js});
+    const data = {Energy_js,Max_energy_js};
+    res.json(data);
+  });
+  
+  io.on('connection', (socket) => {
+    socket.emit('minecraft_var', {Energy_js, Max_energy_js});
+  });
+  
+  app.listen(PORT, () => {
+    console.log(`Server is listening on port ${PORT}...`);
+  });
 
 
 function get_minecraft_response(json,tag)

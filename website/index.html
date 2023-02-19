@@ -7,11 +7,11 @@
   
   <script src="minecraft/minecraft.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script>
     $(document).ready(() => {
-      setInterval(() => {
         $.ajax({
-          url: '/home/vincentgenty33/erp-atm7-V1/minecraft/minecraft.js',
+          url: 'http://34.163.212.35:1337/home/vincentgenty33/erp-atm7-V1/minecraft/minecraft.js',
           type: 'GET',
           dataType: 'json',
           success: (data) => {
@@ -22,7 +22,6 @@
             console.error(error);
           }
         });
-      }, 5000);
     });
     
 </script>
@@ -34,9 +33,22 @@
   <body>
 
 <div>
+  
+ 
+
+<script src="/socket.io/socket.io.js"></script>
+ <script>
+    const socket = io.connect('http://34.163.212.35:1337');
+    socket.on('minecraft_var', (data) => {
+      document.getElementById('energy').textContent = data.Energy_js;
+      document.getElementById('max-energy').textContent = data.Max_energy_js;
+    });
+  </script>
+
+
 <h2>Variables:</h2>
-<p>Max_energy_js: <span id="Max_energy_js"></span></p>
-<p>Energy_js: <span id="Energy_js"></span></p>
+<p>Max_energy_js: <span id="max-energy"></span></p>
+<p>Energy_js: <span id="energy"></span></p>
 </div>
     
   <h1>ERP-ATM7</h1>
