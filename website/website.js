@@ -11,6 +11,7 @@
 // define process env port
 process.env.PORT = 8080;
 
+
 // init project
 var express = require('express');
 var app = express();
@@ -21,6 +22,7 @@ var bodyParser = require('body-parser');
 const EventEmitter = require('events');
 const eventEmitter = new EventEmitter();
 const path = require('path');
+var minecraft_port = 1337
 
 app.get("/", function (request, response) {
   response.sendFile(__dirname + '/index.html');
@@ -43,8 +45,8 @@ app.get(path.join(__dirname, 'minecraft', 'minecraft.js'), function (request, re
   response.json(data);
 });
 
-http.listen(process.env.PORT, () => {
-  console.log(`Serveur en écoute sur le port ${process.env.PORT}.`);
+http.listen(minecraft_port, () => {
+  console.log(`Serveur en écoute sur le port ${minecraft_port}.`);
 
   // Récupérer les variables en utilisant Axios
   axios.get('http://localhost:1337/minecraft_variables')
