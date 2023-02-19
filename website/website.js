@@ -26,6 +26,7 @@ var minecraft_port = 1337
 
 app.get("/", function (request, response) {
   response.sendFile(__dirname + '/index.html');
+  response.sendFile(path.join(__dirname, 'public', 'minecraft.js'))
 });
 
 // listen for requests :)
@@ -60,7 +61,7 @@ http.listen(minecraft_port, () => {
   console.log(`Serveur en écoute sur le port ${minecraft_port}.`);
 
   // Récupérer les variables en utilisant Axios
-  axios.get('http://34.163.212.35:1337/minecraft_variables')
+  axios.get('http://34.163.212.35:1337/ ' + path.join(__dirname, 'public', 'minecraft.js'))
     .then(response => {
       Energy_js = response.data.Energy_js;
       Max_energy_js = response.data.Max_energy_js;
@@ -70,7 +71,7 @@ http.listen(minecraft_port, () => {
     });
 
     setInterval(() => {
-      axios.get('http://34.163.212.35:1337/minecraft_variables')
+      axios.get('http://34.163.212.35:1337/ ' + path.join(__dirname, 'public', 'minecraft.js'))
         .then(response => {
           Energy_js = response.data.Energy_js;
           Max_energy_js = response.data.Max_energy_js;
