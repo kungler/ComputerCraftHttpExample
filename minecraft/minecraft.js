@@ -26,6 +26,12 @@ http.createServer((req, res) => {
         });
     }
 })
+.listen(PORT, null, (err) => {
+    if(err)
+        console.error(`Error: ${err}`);
+    else
+        console.log("\n\nServer is listening...");
+});
 
 
 
