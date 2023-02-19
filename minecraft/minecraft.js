@@ -52,8 +52,9 @@ app.post('/', (req, res) => {
 
 function get_minecraft_response(json,tag)
 {
-
-  let json_list = json.split(",");
+  console.log(json)
+  let json_list = toString(json).split(",");
+  console.log(json_list)
 
   for (json_entity of json_list){
         
