@@ -48,9 +48,10 @@ app.post('/', (req, res) => {
   });
 
 function get_minecraft_response(jsonObj,tag){
+    console.log(jsonObj)
     let regex = new RegExp(`"${tag}":([^,]+)`);
     let match = jsonObj.match(regex);
-    
+
     if (match) {
       console.log(match[1].trim())
       return match[1].trim();
