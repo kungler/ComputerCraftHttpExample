@@ -32,8 +32,8 @@ app.use(bodyParser.json());
 app.post('/', (req, res) => {
     console.log(`Incoming ${req.method} from ${req.connection.remoteAddress}`);
     const minecraft_response = req.body;
-    const Energy_js = get_minecraft_response(minecraft_response,"Energy");
-    const Max_energy_js = get_minecraft_response(minecraft_response,"Max_energy");
+    const Energy_js = get_minecraft_response(JSON.stringify(minecraft_response),"Energy");
+    const Max_energy_js = get_minecraft_response(JSON.stringify(minecraft_response),"Max_energy");
     eventEmitter.emit('minecraft_var',{Energy_js,Max_energy_js});
     const data = {Energy_js,Max_energy_js};
     res.json(data);
@@ -50,9 +50,7 @@ app.post('/', (req, res) => {
 
 function get_minecraft_response(json,tag)
 {
-  console.log(typeof json)
-  console.log(json);
-  console.log(JSON.parse(JSON.stringify(json)).Energy);
+    console.log(json)
   
   let json_list = toString(json).split(",");
 
@@ -62,7 +60,7 @@ function get_minecraft_response(json,tag)
 
         let regex = new RegExp(`"${tag}":(\\d+\\.?\\d*)`)
         let tag_value = json_entity.match(regex)[1];
-
+        console.log(tag_value)
         return tag_value;
     }
   }
