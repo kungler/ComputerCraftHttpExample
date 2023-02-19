@@ -50,12 +50,16 @@ app.post('/', (req, res) => {
   });
 
 function get_minecraft_response(jsonStr,tag){
-    console.log(jsonStr)
-    const regex = new RegExp(`"${tag}":\\s*([^,}\\s]*)`, 'i');
+    let jsonObject = JSON.parse(jsonStr);
+    let regex = new RegExp(`"${tag}":\\s*([^,}\\s]*)`, 'i');
     console.log(regex)
-    const match = jsonStr.match(regex);
-    console.log(match)
-    return match ? match[1] : null;
+    let match = JSON.stringify(jsonObject).match(regex);
+    if (match) {
+      return parseFloat(match[1]);
+    } else {
+      return null;
+    }
+
      
   }
   
