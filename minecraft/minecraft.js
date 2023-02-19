@@ -44,17 +44,18 @@ http.createServer((req, res) => {
             console.log(Energy_js);
             console.log(Max_energy_js);
             eventEmitter.emit('minecraft_var',{Energy_js,Max_energy_js});
-
+             const data = {Energy_js,Max_energy_js};
+            response.json(data);
 
 
 
         });
     }else{
-        console.log(Energy_js);
-        console.log(Max_energy_js);
+        const data = {Energy_js,Max_energy_js};
+        response.json(data);
     }
 
-    
+
 }).listen(PORT, null, (err) => {
     if(err)
         console.error(`Error: ${err}`);
