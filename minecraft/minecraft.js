@@ -12,7 +12,7 @@ var bodyParser = require('body-parser');
 const EventEmitter = require('events');
 const eventEmitter = new EventEmitter();
 const path = require('path');
-var minecraft_port = 1337
+
 
 
 //variables à récuperer
@@ -50,11 +50,13 @@ app.post('/', (req, res) => {
 
 
 function get_minecraft_response(jsonObj,tag){
+
     let tagObj = JSON.parse(Object.keys(jsonObj)[0]);
     console.log(tagObj)
     let tagValue = tagObj[tag];
     console.log(tagValue)
     return tagValue;
+
   }
      
   

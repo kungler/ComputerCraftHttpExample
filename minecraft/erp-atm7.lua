@@ -1,61 +1,48 @@
-reqUrl = "http://34.163.212.35:1337/" -- Node.js server has to be hosted somewhere, an IP address will not work here
+reqUrl = "http://34.163.212.35:1337/"
  
---Energy
+ 
+-- Energy
  
 mc_1 = peripheral.wrap("inductionPort_1")
  
 function get_energy(meka_cell)
     Energy = meka_cell.getEnergy()
-    
+ 
     return Energy
 end
  
 function get_max_energy(meka_cell)
     max_energy = meka_cell.getMaxEnergy()
-    
+ 
     return max_energy
-    
+ 
 end
  
-    
+-- json
  
- 
---json
- 
-reqBod = textutils.serialiseJSON({Energy = get_energy(mc_1),Max_energy = get_max_energy(mc_1) })
+function get_json_body()
+    return textutils.serialiseJSON({ Energy = get_energy(mc_1), Max_energy = get_max_energy(mc_1) })
+end
  
 local function sendReq(url, body)
-    print("setting up...")
+    print("Setting up...")
+    
  
-    if body then
-        http.request(url, tostring(body))
-    else
-        http.request(url)
-    end
- 
- 
-    while true do
-        local event, url, hBody = os.pullEvent()
- 
-        if event == "http_success" then
+    http.post(url,tostring(body))
+        if response then
             print("HTTP success")
-            return hBody
-        elseif event == "http_failure" then
+            local response_body = response.readAll()
+            print(response_body)
+        else
             print("HTTP error")
-            return nil
         end
-    end
 end
- 
  
 local function run()
     while true do
-        local hBody = sendReq(reqUrl, reqBod)
- 
-            if hBody then
-                local body = hBody.readAll()
-                print(body)
-            end
+        local json_body = get_json_body()
+        sendReq(reqUrl, json_body)
+        sleep(5) -- wait 5 seconds before sending another request
     end
 end
  
