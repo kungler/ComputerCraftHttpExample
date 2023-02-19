@@ -5,13 +5,13 @@
   <base target="_top">
   <link rel="stylesheet" href="stylesheet.css">
   
-  <script src="minecraft/minecraft.js"></script>
+  <script src="../minecraft/minecraft.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script>
     $(document).ready(() => {
         $.ajax({
-          url: 'http://34.163.212.35:1337/home/vincentgenty33/erp-atm7-V1/minecraft/minecraft.js',
+          url: '../minecraft/minecraft.js',
           type: 'GET',
           dataType: 'json',
           success: (data) => {
