@@ -50,9 +50,12 @@ app.post('/', (req, res) => {
 
 function get_minecraft_response(jsonStr,tag){
     const regex = new RegExp(`"${tag}":([^,}]+)`);
+    console.log(regex)
     let match = jsonStr.match(regex);
+    console.log(match)
     if (!match) {
       // Si le tag n'est pas trouvé dans le JSON restant, retourner null
+      console.log('wesh')
       return null;
     }
     // Extraire la valeur de la clé vide (clé vide = chaîne JSON restante)
